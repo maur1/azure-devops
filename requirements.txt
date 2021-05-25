@@ -1,0 +1,7 @@
+# Not pinning libraries as project is short term
+
+pytest
+pylint
+jupyter
+pytest-cov
+click
