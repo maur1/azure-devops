@@ -9,6 +9,6 @@ lint:
 	pylint --disable=R,C,E1120,W0105 click-ex/hello.py
 
 test:
-	python3 -m pytest -vv click-ex/test_hello.py
+	python3 -m pytest -vv test_hello.py
 
-all: hello install
+all: install lint test
