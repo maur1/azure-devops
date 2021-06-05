@@ -11,7 +11,7 @@ variables:
   azureServiceConnectionId: '1a1f8854-5732-4555-b5c9-edc292b1e9c6'
 
   # Web app name
-  webAppName: ''
+  webAppName: 'flask-ml-service-2'
 
   # Agent VM image name
   vmImageName: 'ubuntu-latest'
@@ -80,7 +80,7 @@ stages:
             displayName: 'Use Python version'
 
           - task: AzureWebApp@1
-            displayName: 'Deploy Azure Web App : '
+            displayName: 'Deploy Azure Web App : flask-ml-service'
             inputs:
               azureSubscription: $(azureServiceConnectionId)
               appName: $(webAppName)
