@@ -1,3 +1,7 @@
+[![Python application test with Github Actions](https://github.com/maur1/azure-devops/actions/workflows/python-actions.yml/badge.svg)](https://github.com/maur1/azure-devops/actions/workflows/python-actions.yml)
+
+[![Build Status](https://dev.azure.com/maureen0016/maureen/_apis/build/status/maur1.azure-devops%20(1)?branchName=main)](https://dev.azure.com/maureen0016/maureen/_build/latest?definitionId=2&branchName=main)
+
 # Overview
 Setup of a continous delivery and intrgration pipeline using Azure piplines and git actions
 to deploy a simple machine learning app using Flask web framwork ysed to predict housing prices in Boston. 
@@ -24,12 +28,7 @@ When changes to the ML code is made in the main branch the azure pipeline is tri
 ![Screenshot](pipelineArch.png)
 
 ## Project set-up
-Clone or fork project
 
-* Project running on Azure App Service
-
-
-* Project cloned into Azure Cloud Shell
 Clone project in the cloud shell by typing 
 
 ```bash
@@ -43,26 +42,26 @@ user@Azure:~/azure-devops$ ls
 ```
 ![Screenshot](clonedRepo.png)
 
-* Install requirmenets, lint and test code by running
+Install requirmenets, lint and test code by running
 ```bash
 user@Azure:~/azure-devops$ make all
 ```
 Should give a successfull output:
 ![Screenshot](testFromMakeFile.png)
 
-* Create and initially deploy the app by running 
+Create and initially deploy the app by running 
 
 ```bash
 user@Azure:~/azure-devops$ az webapp up -n flask-ml-service-2
 ```
 Make sure the application returns a 202
 
-* Run the predefined script which POSTs data to the app in order to recieve a prediction 
+Run the predefined script which POSTs data to the app in order to recieve a prediction 
 Out put should look like this
 
 ![Screenshot](azureWebApp.png)
 
-[Check that the website is up and running by visiting](https://flask-ml-service-2.azurewebsites.net/)
+[Check that the website is up and running by visiting the web page](https://flask-ml-service-2.azurewebsites.net/)
 ![Screenshot](pageUp.png)
 
 * Set up Azure pipline integration
@@ -83,6 +82,3 @@ Out put should look like this
 
 <TODO: Add link Screencast on YouTube>
 
-
-
-[![Python application tests with github actions](https://github.com/maur1/azure-devops/actions/workflows/main.yml/badge.svg)](https://github.com/maur1/azure-devops/actions/workflows/main.yml)
