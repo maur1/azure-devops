@@ -1,6 +1,6 @@
 # Overview
 Setup of a continous delivery and intrgration pipeline using Azure piplines and git actions
-to deploy a simple machine learning app using Flask web framwork used to predict housing prices in Boston. 
+to deploy a simple machine learning app using Flask web framwork ysed to predict housing prices in Boston. 
 The template can be extended to any pre-trained machine learning model, such as those for image recognition and data labeling. 
 
 
@@ -10,46 +10,74 @@ https://trello.com/b/4mjiLmgV/udacity-devops
 * Prject plan 
 https://docs.google.com/spreadsheets/d/1tYQuDqm2EebUbymdccGSOAIrnwG3jesx0YNzeNc6ZWs/edit?usp=sharing
 
-## Instructions
-An Azure Account ( https://portal.azure.com/)
-A GitHub Account ( http://github.com/)
-A CircleCi Account (https://circleci.com/ )
-An Azure DevOps Account (https://dev.azure.com/)
+## Dependecies
+In order to setup this you need to have
+- An Azure Account ( https://portal.azure.com/)
+- A GitHub Account ( http://github.com/)
+- An Azure DevOps Account (https://dev.azure.com/)
 
 
 ## Architectural Diagram 
+The project demonstrates the use of azure pipelines, the flow is seen below:
+When changes to the ML code is made in the main branch the azure pipeline is triggered, it will perform the steps highlighted in build job. Then if all steps are successfull the image will be deployed to the specified envinoment in Azure App services. 
+
 ![Screenshot](pipelineArch.png)
 
-<TODO:  Instructions for running the Python project.  How could a user with no context run this project without asking you for any help.  Include screenshots with explicit steps to create that work. Be sure to at least include the following screenshots:
+## Project set-up
+Clone or fork project
 
 * Project running on Azure App Service
 
+
 * Project cloned into Azure Cloud Shell
+Clone project in the cloud shell by typing 
 
-* Passing tests that are displayed after running the `make all` command from the `Makefile`
+```bash
+user@Azure:~$ git clone git@github.com:maur1/azure-devops.git
+```
+Navigate to folder to folder and check that contents looks like this:
 
-* Output of a test run
+```bash
+user@Azure:~$ cd azure-devops
+user@Azure:~/azure-devops$ ls
+```
+![Screenshot](clonedRepo.png)
 
-* Successful deploy of the project in Azure Pipelines.  [Note the official documentation should be referred to and double checked as you setup CI/CD](https://docs.microsoft.com/en-us/azure/devops/pipelines/ecosystems/python-webapp?view=azure-devops).
+* Install requirmenets, lint and test code by running
+```bash
+user@Azure:~/azure-devops$ make all
+```
+Should give a successfull output:
+![Screenshot](testFromMakeFile.png)
+
+* Create and initially deploy the app by running 
+
+```bash
+user@Azure:~/azure-devops$ az webapp up -n flask-ml-service-2
+```
+Make sure the application returns a 202
+
+* Run the predefined script which POSTs data to the app in order to recieve a prediction 
+Out put should look like this
+
+![Screenshot](azureWebApp.png)
+
+[Check that the website is up and running by visiting](https://flask-ml-service-2.azurewebsites.net/)
+![Screenshot](pageUp.png)
+
+* Set up Azure pipline integration
 
 * Running Azure App Service from Azure Pipelines automatic deployment
 
-* Successful prediction from deployed flask app in Azure Cloud Shell.  [Use this file as a template for the deployed prediction](https://github.com/udacity/nd082-Azure-Cloud-DevOps-Starter-Code/blob/master/C2-AgileDevelopmentwithAzure/project/starter_files/flask-sklearn/make_predict_azure_app.sh).
-The output should look similar to this:
-
-```bash
-udacity@Azure:~$ ./make_predict_azure_app.sh
-Port: 443
-{"prediction":[20.35373177134412]}
-```
-
 * Output of streamed log files from deployed application
 
-> 
+[Note the official documentation should be referred to and double checked as you setup CI/CD](https://docs.microsoft.com/en-us/azure/devops/pipelines/ecosystems/python-webapp?view=azure-devops).
 
 ## Enhancements
-
-<TODO: A short description of how to improve the project in the future>
+* Add test for app.py
+* Add SIT, UAT and Prod envinroment
+* Increase tests
+* Expand and improve ML model
 
 ## Demo 
 
