@@ -17,13 +17,13 @@ variables:
   vmImageName: 'ubuntu-latest'
 
   # Environment name
-  environmentName: 'flask-ml-service-2'
+  environmentName: 'dev'
 
   # Project root folder. Point to the folder containing manage.py file.
   projectRoot: $(System.DefaultWorkingDirectory)
 
-  # Python version: 3.7
-  pythonVersion: '3.7'
+  # Python version: 3.8
+  pythonVersion: '3.8'
 
 stages:
 - stage: Build
@@ -44,7 +44,7 @@ stages:
         python -m pip install --upgrade pip
         pip install setup
         pip install -r requirements.txt
-      workingDirectory: $(projectRoot)
+      workingDirectory: $(projectRoot)Run
       displayName: "Install requirements"
 
     - script: |
@@ -88,7 +88,7 @@ stages:
             displayName: 'Use Python version'
 
           - task: AzureWebApp@1
-            displayName: 'Deploy Azure Web App : flask-ml-service'
+            displayName: 'Deploy Azure Web App : flask-ml-service-2'
             inputs:
               azureSubscription: $(azureServiceConnectionId)
               appName: $(webAppName)
