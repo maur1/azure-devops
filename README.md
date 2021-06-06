@@ -1,14 +1,20 @@
 # Overview
+Setup of a continous delivery and intrgration pipeline using Azure piplines and git actions
+to deploy a simple machine learning app using Flask web framwork ysed to predict housing prices in Boston. 
+The template can be extended to any pre-trained machine learning model, such as those for image recognition and data labeling. 
 
-<TODO: complete this with an overview of your project>
 
 ## Project Plan
-<TODO: Project Plan
-
-* A link to a Trello board for the project
-* A link to a spreadsheet that includes the original and final project plan>
+* Trello board
+https://trello.com/b/4mjiLmgV/udacity-devops
+* Prject plan 
+https://docs.google.com/spreadsheets/d/1tYQuDqm2EebUbymdccGSOAIrnwG3jesx0YNzeNc6ZWs/edit?usp=sharing
 
 ## Instructions
+An Azure Account ( https://portal.azure.com/)
+A GitHub Account ( http://github.com/)
+A CircleCi Account (https://circleci.com/ )
+An Azure DevOps Account (https://dev.azure.com/)
 
 <TODO:  
 * Architectural Diagram (Shows how key parts of the system work)>
