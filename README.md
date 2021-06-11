@@ -1,13 +1,13 @@
 [![Python application test with Github Actions](https://github.com/maur1/azure-devops/actions/workflows/python-actions.yml/badge.svg)](https://github.com/maur1/azure-devops/actions/workflows/python-actions.yml)
 
-[![Build Status](https://dev.azure.com/maureen0016/maureen/_apis/build/status/maur1.azure-devops%20(1)?branchName=main)](https://dev.azure.com/maureen0016/maureen/_build/latest?definitionId=2&branchName=main)
+[![Build Status](https://dev.azure.com/maureen0016/udacity-devops/_apis/build/status/maur1.azure-devops?branchName=main)](https://dev.azure.com/maureen0016/udacity-devops/_build/latest?definitionId=4&branchName=main)
 
 # Overview
 Setup of a continous delivery and intrgration pipeline using Azure piplines and git actions
 to deploy a simple machine learning app using Flask web framwork ysed to predict housing prices in Boston. 
 The template can be extended to any pre-trained machine learning model, such as those for image recognition and data labeling. 
 
-
+[Note the official documentation should be referred to and double checked as you setup CI/CD](https://docs.microsoft.com/en-us/azure/devops/pipelines/ecosystems/python-webapp?view=azure-devops).
 ## Project Plan
 * Trello board
 https://trello.com/b/4mjiLmgV/udacity-devops
@@ -40,14 +40,14 @@ Navigate to folder to folder and check that contents looks like this:
 user@Azure:~$ cd azure-devops
 user@Azure:~/azure-devops$ ls
 ```
-![Screenshot](clonedRepo.png)
+![Screenshot1](clonedRepo.png)
 
 Install requirmenets, lint and test code by running
 ```bash
 user@Azure:~/azure-devops$ make all
 ```
 Should give a successfull output:
-![Screenshot](testFromMakeFile.png)
+![Screenshot2](testFromMakeFile.png)
 
 Create and initially deploy the app by running 
 
@@ -59,26 +59,33 @@ Make sure the application returns a 202
 Run the predefined script which POSTs data to the app in order to recieve a prediction 
 Out put should look like this
 
-![Screenshot](azureWebApp.png)
+![Screenshot3](azureWebApp.png)
 
 [Check that the website is up and running by visiting the web page](https://flask-ml-service-2.azurewebsites.net/)
-![Screenshot](pageUp.png)
+![Screenshot6](pageUp.png)
 
-* Set up Azure pipline integration
+Set up Azure pipline integration thorugh Azure Devops for Organizations
+[Follow the instructions here for set-up](https://docs.microsoft.com/en-us/azure/devops/pipelines/ecosystems/python-webapp?view=azure-devops)
 
-* Running Azure App Service from Azure Pipelines automatic deployment
+If you have successfully set up the pipeline the output should look like this
 
-* Output of streamed log files from deployed application
+![Screenshot4](azurePipeLineRun.png)
 
-[Note the official documentation should be referred to and double checked as you setup CI/CD](https://docs.microsoft.com/en-us/azure/devops/pipelines/ecosystems/python-webapp?view=azure-devops).
+Verify that the app is up and running by checking the log tail for the application. 
+Use command 
+```bash
+user@Azure:~/azure-devops$ az webapp log tail --name flask-ml-service-2
+```
+
+![Screenshot5](logtailFlaskApp.png)
+
+
 
 ## Enhancements
 * Add test for app.py
+* Crate dev and main branch - only deploy new web app when dev is merged to main
 * Add SIT, UAT and Prod envinroment
 * Increase tests
 * Expand and improve ML model
 
-## Demo 
-
-<TODO: Add link Screencast on YouTube>
 

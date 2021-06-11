@@ -11,7 +11,6 @@ LOG = create_logger(app)
 LOG.setLevel(logging.INFO)
 
 def scale(payload):
-    """Scales Payload"""
 
     LOG.info("Scaling Payload: %s payload")
     scaler = StandardScaler().fit(payload)
@@ -23,7 +22,7 @@ def home():
     html = "<h3>Sklearn Prediction Home</h3>"
     return html.format(format)
 
-# TO DO:  Log out the prediction value
+
 @app.route("/predict", methods=['POST'])
 def predict():
     """Performs an sklearn prediction
