@@ -89,3 +89,4 @@ user@Azure:~/azure-devops$ az webapp log tail --name flask-ml-service-2
 * Expand and improve ML model
 
 
+
