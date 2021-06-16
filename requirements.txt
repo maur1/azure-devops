@@ -1,7 +1,7 @@
 # Not pinning libraries as project is short term
 
-Flask==1.0.2
-pandas==0.24.2
-scikit-learn==0.20.3
+Flask==2.0.1
+pandas==1.2.4
+scikit-learn==0.24.1
 pylint
 pytest
