@@ -1,6 +1,5 @@
 [![Python application test with Github Actions](https://github.com/maur1/azure-devops/actions/workflows/python-actions.yml/badge.svg)](https://github.com/maur1/azure-devops/actions/workflows/python-actions.yml)
 
-[![Build Status](https://dev.azure.com/maureen0016/udacity-devops/_apis/build/status/maur1.azure-devops?branchName=main)](https://dev.azure.com/maureen0016/udacity-devops/_build/latest?definitionId=4&branchName=main)
 
 # Overview
 Setup of a continous delivery and intrgration pipeline using Azure piplines and git actions
@@ -17,9 +16,8 @@ https://docs.google.com/spreadsheets/d/1tYQuDqm2EebUbymdccGSOAIrnwG3jesx0YNzeNc6
 ## Dependecies
 In order to setup this you need to have
 - An Azure Account ( https://portal.azure.com/)
-- A GitHub Account ( http://github.com/)
-- An Azure DevOps Account (https://dev.azure.com/)
-
+- A GitHub Account ( http://github.com/) with the project cloned into
+- An Azure DevOps Account (https://dev.azure.com/) [with an ssh key set up for github communication](https://docs.microsoft.com/en-us/azure/devops/repos/git/use-ssh-keys-to-authenticate?view=azure-devops)
 
 ## Architectural Diagram 
 The project demonstrates the use of azure pipelines, the flow is seen below:
