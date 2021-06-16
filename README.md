@@ -2,7 +2,7 @@
 
 
 # Overview
-Setup of a continous delivery and intrgration pipeline using Azure piplines and git actions
+Setup of a continous delivery and integration pipeline using Azure piplines and git actions
 to deploy a simple machine learning app using Flask web framwork ysed to predict housing prices in Boston. 
 The template can be extended to any pre-trained machine learning model, such as those for image recognition and data labeling. 
 
