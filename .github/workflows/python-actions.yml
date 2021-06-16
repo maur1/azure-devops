@@ -4,6 +4,10 @@ on:
   push:
     branches:
       - '*'
+      
+defaults:
+  run:
+    working-directory: scaffolding
 
 jobs:
   build:
