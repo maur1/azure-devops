@@ -12,14 +12,14 @@ LOG.setLevel(logging.INFO)
 
 def scale(payload):
  
-    LOG.info("Scaling Payload: {}".format(payload))
+    LOG.info("Scaling Payload: %s", payload)
     scaler = StandardScaler().fit(payload)
     scaled_adhoc_predict = scaler.transform(payload)
     return scaled_adhoc_predict
 
 @app.route("/")
 def home():
-    html = "<h3>Sklearn Prediction Home - this app predicts Boston Hopusing prices</h3>"
+    html = "<h3>Sklearn Prediction Home - this app predicts Boston Hopusing</h3>"
     return html.format(format)
 
 
@@ -56,13 +56,13 @@ def predict():
     try:
         clf = joblib.load("boston_housing_prediction.joblib")
     except:
-        LOG.info("JSON payload: {}".format(request.json))
+        LOG.info("JSON payload: %s", request.json)
         return "Model not loaded"
 
     json_payload = request.json
-    LOG.info("JSON payload: {}".format(json_payload))
+    LOG.info("JSON payload:  %s", request.json)
     inference_payload = pd.DataFrame(json_payload) 
-    LOG.info("inference payload DataFrame: {}".format(inference_payload))
+    LOG.info("inference payload DataFrame:  %s", inference_payload)
     scaled_payload = scale(inference_payload)
     prediction = list(clf.predict(scaled_payload))
     return jsonify({'prediction': prediction})
