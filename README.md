@@ -23,7 +23,7 @@ In order to setup this you need to have
 The project demonstrates the use of azure pipelines, the flow is seen below:
 When changes to the ML code is made in the main branch the azure pipeline is triggered, it will perform the steps highlighted in build job. Then if all steps are successfull the image will be deployed to the specified envinoment in Azure App services. 
 
-![Screenshot](pipelineArch.png)
+![Screenshot](photos/pipelineArch.png)
 
 ## Project set-up
 
@@ -38,14 +38,14 @@ Navigate to folder to folder and check that contents looks like this:
 user@Azure:~$ cd azure-devops
 user@Azure:~/azure-devops$ ls
 ```
-![Screenshot1](clonedRepo.png)
+![Screenshot1](photos/clonedRepo.png)
 
 Install requirmenets, lint and test code by running
 ```bash
 user@Azure:~/azure-devops$ make all
 ```
 Should give a successfull output:
-![Screenshot2](testFromMakeFile.png)
+![Screenshot2](photos/testFromMakeFile.png)
 
 Create and initially deploy the app by running 
 
@@ -57,17 +57,17 @@ Make sure the application returns a 202
 Run the predefined script which POSTs data to the app in order to recieve a prediction 
 Out put should look like this
 
-![Screenshot3](azureWebApp.png)
+![Screenshot3](photos/azureWebApp.png)
 
 [Check that the website is up and running by visiting the web page](https://flask-ml-service-2.azurewebsites.net/)
-![Screenshot6](pageUp.png)
+![Screenshot6](photos/pageUp.png)
 
 Set up Azure pipline integration thorugh Azure Devops for Organizations
 [Follow the instructions here for set-up](https://docs.microsoft.com/en-us/azure/devops/pipelines/ecosystems/python-webapp?view=azure-devops)
 
 If you have successfully set up the pipeline the output should look like this
 
-![Screenshot4](azurePipeLineRun.png)
+![Screenshot4](photos/azurePipeLineRun.png)
 
 Verify that the app is up and running by checking the log tail for the application. 
 Use command 
@@ -75,7 +75,7 @@ Use command
 user@Azure:~/azure-devops$ az webapp log tail --name flask-ml-service-2
 ```
 
-![Screenshot5](logtailFlaskApp.png)
+![Screenshot5](photos/logtailFlaskApp.png)
 
 
 
