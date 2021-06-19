@@ -2,18 +2,18 @@
 
 
 # Overview
-Setup of a continous delivery and integration pipeline using Azure piplines and git actions
-to deploy a simple machine learning app using Flask web framwork ysed to predict housing prices in Boston. 
+Setup of a continuous delivery and integration pipeline using Azure pipelines and git actions
+to deploy a simple machine learning app using Flask web framework used to predict housing prices in Boston. 
 The template can be extended to any pre-trained machine learning model, such as those for image recognition and data labeling. 
 
 [Note the official documentation should be referred to and double checked as you setup CI/CD](https://docs.microsoft.com/en-us/azure/devops/pipelines/ecosystems/python-webapp?view=azure-devops).
 ## Project Plan
 * Trello board
 https://trello.com/b/4mjiLmgV/udacity-devops
-* Prject plan 
+* Project plan 
 https://docs.google.com/spreadsheets/d/1tYQuDqm2EebUbymdccGSOAIrnwG3jesx0YNzeNc6ZWs/edit?usp=sharing
 
-## Dependecies
+## Dependencies
 In order to setup this you need to have
 - An Azure Account ( https://portal.azure.com/)
 - A GitHub Account ( http://github.com/) with the project cloned into
@@ -21,7 +21,7 @@ In order to setup this you need to have
 
 ## Architectural Diagram 
 The project demonstrates the use of azure pipelines, the flow is seen below:
-When changes to the ML code is made in the main branch, the azure pipeline and github actions are triggered. The azure pipeline will perform the steps highlighted in build job. Then if all steps are successfull the image will be deployed to the specified envinoment in Azure App services. 
+When changes to the ML code is made in the main branch, the azure pipeline and github actions are triggered. The azure pipeline will perform the steps highlighted in build job. Then if all steps are successful the image will be deployed to the specified environment in Azure App services. 
 
 ![Screenshot](photos/pipelineArch.png)
 
@@ -40,11 +40,11 @@ user@Azure:~/azure-devops$ ls
 ```
 ![Screenshot1](photos/clonedRepo.png)
 
-Install requirmenets, lint and test code by running
+Install requirements, lint and test code by running
 ```bash
 user@Azure:~/azure-devops$ make all
 ```
-Should give a successfull output:
+Should give a successful output:
 ![Screenshot2](photos/testFromMakeFile.png)
 
 Create and initially deploy the app by running 
@@ -62,7 +62,7 @@ Out put should look like this
 [Check that the website is up and running by visiting the web page](https://flask-ml-service-2.azurewebsites.net/)
 ![Screenshot6](photos/pageUp.png)
 
-Set up Azure pipline integration thorugh Azure Devops for Organizations
+Set up Azure pipeline integration through Azure Devops for Organizations
 [Follow the instructions here for set-up](https://docs.microsoft.com/en-us/azure/devops/pipelines/ecosystems/python-webapp?view=azure-devops)
 
 If you have successfully set up the pipeline the output should look like this
@@ -77,11 +77,11 @@ user@Azure:~/azure-devops$ az webapp log tail --name flask-ml-service-2
 
 ![Screenshot5](photos/logtailFlaskApp.png)
 
-After a build the deployd application should be up and running, the web app can be viewed in the azure portal. Test that the web app works by requesting a new prediction as seen below
+After a build the deployed application should be up and running, the web app can be viewed in the azure portal. Test that the web app works by requesting a new prediction as seen below
 
 ![Screenshot5](photos/appWprediction.png)
 
-Github actions can also be enabled for the project - this will enable automated testing on your local branch - a successfull run will look like this:
+Github actions can also be enabled for the project - this will enable automated testing on your local branch - a successful run will look like this:
 ![Screenshot8](photos/screenshotSuccessfulGitActionRun.png)
 
 ## Load testing with locust
@@ -105,10 +105,15 @@ Go to Locust WebUi
 
   ![Screenshot5](photos/locustgrpahs.png)
 
+
+## Youtube presentation of project
+Follow the link to check out my walkthrough of the project:
+
+[youtube walkthrough](https://youtu.be/mpcYD_pTjTU)
 ## Enhancements
 * Add test for app.py
 * Crate dev and main branch - only deploy new web app when dev is merged to main
-* Add SIT, UAT and Prod envinroment
+* Add SIT, UAT and Prod environment
 * Increase tests
 * Expand and improve ML model
 
