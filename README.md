@@ -21,7 +21,7 @@ In order to setup this you need to have
 
 ## Architectural Diagram 
 The project demonstrates the use of azure pipelines, the flow is seen below:
-When changes to the ML code is made in the main branch the azure pipeline is triggered, it will perform the steps highlighted in build job. Then if all steps are successfull the image will be deployed to the specified envinoment in Azure App services. 
+When changes to the ML code is made in the main branch, the azure pipeline and github actions are triggered. The azure pipeline will perform the steps highlighted in build job. Then if all steps are successfull the image will be deployed to the specified envinoment in Azure App services. 
 
 ![Screenshot](photos/pipelineArch.png)
 
@@ -77,7 +77,33 @@ user@Azure:~/azure-devops$ az webapp log tail --name flask-ml-service-2
 
 ![Screenshot5](photos/logtailFlaskApp.png)
 
+After a build the deployd application should be up and running, the web app can be viewed in the azure portal. Test that the web app works by requesting a new prediction as seen below
 
+![Screenshot5](photos/appWprediction.png)
+
+Github actions can also be enabled for the project - this will enable automated testing on your local branch - a successfull run will look like this:
+![Screenshot8](photos/screenshotSuccessfulGitActionRun.png)
+
+## Load testing with locust
+Locust is a tool for load-testing web-applications. The created `locustfile.py` contains the necessary code to get predictions by calling the deployed WebApp.
+
+Run locust from your terminal
+```bash
+locust
+```
+Go to Locust WebUi
+
+ ```http://localhost:8089/```
+
+ ![Screenshot5](photos/locustpt1.png)
+
+ Enter the parameters for the test, in my test run I used 20 users with a spawn time of 1 second with the HOST being 
+
+ ```https://flask-ml-service-2.azurewebsites.net```
+
+ You should see similar graphs as shown below, indicating how well your web app handles the load 
+
+  ![Screenshot5](photos/locustgrpahs.png)
 
 ## Enhancements
 * Add test for app.py
@@ -87,5 +113,4 @@ user@Azure:~/azure-devops$ az webapp log tail --name flask-ml-service-2
 * Expand and improve ML model
 
 
-## YOUTUBE link showcasing the project
-https://youtu.be/mpcYD_pTjTU
+
